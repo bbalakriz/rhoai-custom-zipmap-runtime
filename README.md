@@ -1,4 +1,4 @@
-# RHOAI CarBoost ONNX Runtime Project
+# RHOAI custom zipmap runtime
 
 ## Overview
 This project demonstrates how to create a scikit-learn model with a ZipMap output, convert it to ONNX, and serve it using a custom KServe runtime. The workflow includes model creation, testing, and deployment using a custom Docker image and KServe ServingRuntime.
