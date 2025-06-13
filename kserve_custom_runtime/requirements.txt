@@ -1,0 +1,5 @@
+numpy
+scikit-learn
+skl2onnx
+onnxruntime
+kserve==0.14.0
