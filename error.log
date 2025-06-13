@@ -1,0 +1,16 @@
+[2025-06-13 10:36:39.928][1][serving][info][model.cpp:42] Getting model from /mnt/models
+[2025-06-13 10:36:39.928][1][serving][info][model.cpp:49] Model downloaded to /mnt/models
+[2025-06-13 10:36:39.928][1][serving][info][model.cpp:149] Will add model: ovms; version: 1 ...
+[2025-06-13 10:36:39.928][1][serving][info][modelversionstatus.cpp:109] STATUS CHANGE: Version 1 of model ovms status change. New status: ( "state": "START", "error_code": "OK" )
+[2025-06-13 10:36:39.928][1][serving][info][modelinstance.cpp:1064] Loading model: ovms, version: 1, from path: /mnt/models/1, with target device: AUTO ...
+[2025-06-13 10:36:39.928][1][serving][info][modelversionstatus.cpp:109] STATUS CHANGE: Version 1 of model ovms status change. New status: ( "state": "START", "error_code": "OK" )
+[2025-06-13 10:36:39.928][1][serving][info][modelversionstatus.cpp:109] STATUS CHANGE: Version 1 of model ovms status change. New status: ( "state": "LOADING", "error_code": "OK" )
+[2025-06-13 10:36:39.933][1][serving][error][modelinstance.cpp:734] Error: Exception from src/inference/src/cpp/core.cpp:95:
+Check 'false' failed at src/frontends/onnx/frontend/src/frontend.cpp:164:
+FrontEnd API failed with GeneralFailure:
+OpenVINO does not support the following ONNX operations: ai.onnx.ml.TreeEnsembleClassifier, ai.onnx.ml.ZipMap
+; occurred during loading ov::Model model: ovms version: 1
+[2025-06-13 10:36:39.933][1][serving][info][modelversionstatus.cpp:109] STATUS CHANGE: Version 1 of model ovms status change. New status: ( "state": "LOADING", "error_code": "UNKNOWN" )
+[2025-06-13 10:36:39.933][1][serving][error][model.cpp:154] Error occurred while loading model: ovms; version: 1; error: Internal server error
+[2025-06-13 10:36:39.933][1][modelmanager][error][modelmanager.cpp:1452] Error occurred while loading model: ovms versions; error: Internal server error
+[2025-06-13 10:36:39.933][1][serving][info][model.cpp:191] Will clean up model: ovms; version: 1 ...
