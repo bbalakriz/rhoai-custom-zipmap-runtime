@@ -34,11 +34,9 @@ model/
     zipmap-model.onnx
 modelmesh_custom_runtime/
     Dockerfile
+    main.py
     model_handler.py
     requirements.txt
-obsolete/
-    Dockerfile_v1
-    model_handler_v1.py
 zipmap_creator/
     create_zipmap_model.py
     local_model_handler.py
