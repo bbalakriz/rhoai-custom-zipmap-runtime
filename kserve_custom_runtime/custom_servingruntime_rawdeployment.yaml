@@ -2,42 +2,34 @@ apiVersion: serving.kserve.io/v1alpha1
 kind: ServingRuntime
 metadata:
   annotations:
-    opendatahub.io/accelerator-name: ""
+    opendatahub.io/accelerator-name: ''
     opendatahub.io/apiProtocol: REST
     opendatahub.io/hardware-profile-name: small-serving-1bmle
-    opendatahub.io/template-display-name: Custom KServe Zipmap ONNX Runtime
+    opendatahub.io/template-display-name: New KServe Zipmap ONNX Runtime
     opendatahub.io/template-name: rhoai-zipmap-onnx-runtime
-    openshift.io/display-name: kserve-zm-dep
+    openshift.io/display-name: new-kserve-zm
+  name: new-kserve-zm
   labels:
     app.kubernetes.io/name: rhoai-zipmap-onnx-runtime
-    opendatahub.io/dashboard: "true"
-  name: kserve-zm-dep
+    opendatahub.io/dashboard: 'true'
 spec:
   containers:
-  - args:
-    - --http_port=8001
-    - --model_dir=/mnt/models
-    - --model_name=zipmap-model
-    command:
-    - python
-    - main.py
-    image: quay.io/balki404/rhoai-zipmap-runtime:kserve
-    name: kserve-container
-    ports:
-    - containerPort: 8001
-      protocol: TCP
-    volumeMounts:
-    - mountPath: /dev/shm
-      name: shm
+    - args:
+        - '--http_port=8001'
+        - '--model_dir=/mnt/models'
+        - '--model_name=zipmap-model'
+      command:
+        - python
+        - custom_runtime.py
+      image: 'quay.io/balki404/rhoai-kserve-custom-runtime:latest'
+      name: kserve-container
+      ports:
+        - containerPort: 8001
+          protocol: TCP
   multiModel: false
   protocolVersions:
-  - v2
+    - v2
   supportedModelFormats:
-  - autoSelect: true
-    name: onnx
-    version: "1"
-  volumes:
-  - emptyDir:
-      medium: Memory
-      sizeLimit: 2Gi
-    name: shm
+    - autoSelect: true
+      name: onnx
+      version: '1'
