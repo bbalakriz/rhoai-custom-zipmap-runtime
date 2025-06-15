@@ -16,7 +16,7 @@ RUN groupadd -g 10001 app-user && \
 
 # Create a directory for the application
 WORKDIR /opt/app-root
-COPY --chown=1001:0 . .
+COPY --chown=1001:0 ./custom_runtime.py .
 
 # Install dependencies using pip
 RUN pip install --no-cache-dir -r requirements.txt
